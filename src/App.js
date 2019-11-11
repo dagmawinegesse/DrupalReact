@@ -4,7 +4,11 @@ import {
   Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button
 } from 'reactstrap';
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
 
+console.log(React.version)
 // const lorem = new LoremIpsum({
 //   sentencesPerParagraph: {
 //     max: 8,
@@ -16,20 +20,6 @@ import {
 //   }
 // });
 
-// const list = [
-//   {
-//     objectID: 0,
-//     Name: 'Cheese Burger',
-//     url: 'https://sifu.unileversolutions.com/image/en-AU/recipe-topvisual/2/1260-709/honest-to-goodness-american-cheese-burger-50294060.jpg',
-//     Summary: "Cheeseburgers are the ultimate comfort food. With switched-up ingredients and creative twists, our most popular variations elevate this classic from familiar to fabulous. Love going out for a burger? We'll point you to the best burger restaurants around.",
-//   },
-//   {
-//     objectID: 1,
-//     Name: 'Steak',
-//     url: 'https://www.omahasteaks.com/blog/wp-content/uploads/2019/09/Grilling-Flat-Irons-BP.jpg',
-//     Summary: 'Whisk soy sauce, vinegar, brown sugar, green onions, garlic, and mustard powder together in a bowl; pour into a resealable plastic bag. Add the steak, coat with the marinade, squeeze out excess air, and seal the bag. Marinate in the refrigerator, 3 to 4 hours.'
-//   }
-// ];
 const API = 'http://gtest.dev.wwbtc.com/json/rec';
 const picURL = "http://gtest.dev.wwbtc.com";
 
@@ -61,14 +51,38 @@ class ImageClick extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      index:0,
+      clicked: false,
       list: null,
 
     }
-
+      this.onClickForward = this.onClickForward.bind(this)
+      this.onClickBack = this.onClickBack.bind(this)
   }
   componentWillMount() {
     this.setState({ list: this.props.list, ID: this.props.ID })
 
+  }
+  onClickForward(){
+    const { list } = this.state;
+    var clicked = false
+    if(clicked === true){
+      this.setState({
+          list:this.props.list, ID : this.props.ID + 1
+      })
+    
+    }
+  }
+  onClickBack(){
+    if(this.state.index - 1 === -1){
+      this.setState({
+        index: this.state.list.length -1 
+      })
+    }else{
+      this.setState({
+        index: this.state.index - 1
+      })
+    }
   }
 
   render() {
@@ -82,10 +96,10 @@ class ImageClick extends React.Component {
       <div className='recipe'>
         
         <h1> {list[this.props.ID].title}</h1>  
-        <Button>Previous</Button>
+        <Button onClick = {this.onClickBack}>Previous</Button>
           
           <img src={picURL+list[this.props.ID].field_images} />
-          <Button>Next</Button>
+          <Button onClick = {this.onClickForward}>Next</Button>
             <div className = "fieldingredients">
                 
                     <li>
@@ -145,15 +159,12 @@ class Recipe extends React.Component {
         {result.map((item, index) =>
          
           <Card className="card" style={{ width: '18rem' }} >
-
-            
               
             <a href="/#" onClick={() => this.imageClick(index)}><CardImg src= {picURL + item.field_images} /></a>
             <CardBody>
               <CardTitle>{item.title}</CardTitle>
 
-            {console.log("http://gtest.dev.wwbtc.com" + item.field_images)}
-            
+         
             </CardBody>
           </Card>
 
