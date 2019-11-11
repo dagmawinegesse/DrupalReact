@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App components Snapshot renders 1`] = `
+<div
+  className="App"
+>
+  <nav>
+    <a
+      href={<Recipe />}
+    >
+      <h1>
+        Food Recipes
+      </h1>
+    </a>
+    <div
+      className="linkHome"
+    >
+      <a
+        href={<Recipe />}
+      >
+        Home
+      </a>
+      <br />
+    </div>
+  </nav>
+  <div
+    className="recipe1"
+  >
+    <div
+      className="cardStyle"
+    >
+      <div
+        id="update"
+      >
+        <h1>
+          In this month edition
+        </h1>
+        <p>
+          Dumque ibi diu moratur commeatus opperiens, quorum translationem ex Aquitania verni imbres solito crebriores prohibebant auctique torrentes, Herculanus advenit protector domesticus, Hermogenis ex magistro equitum filius, apud Constantinopolim, ut supra rettulimus, populari quondam turbela discerpti. quo verissime referente quae Gallus egerat, damnis super praeteritis maerens et futurorum timore suspensus angorem animi quam diu potuit emendabat.
+        </p>
+      </div>
+    </div>
+  </div>
+  <footer
+    id="footer"
+  >
+    <p
+      id="footernotes"
+    >
+       Umami magazine & Umami publications is a fictional magazine and 
+      <br />
+       publisher for illustrative purposes only.      
+    </p>
+    <p
+      id="footerCopyrights"
+    >
+      © 2018 Terms & Conditions
+    </p>
+  </footer>
+</div>
+`;
+
+exports[`App components snapshot renders 1`] = `
+<div
+  className="App"
+>
+  <nav>
+    <a
+      href={<Recipe />}
+    >
+      <h1>
+        Food Recipes
+      </h1>
+    </a>
+    <div
+      className="linkHome"
+    >
+      <a
+        href={<Recipe />}
+      >
+        Home
+      </a>
+      <br />
+    </div>
+  </nav>
+  <div
+    className="recipe1"
+  >
+    <div
+      className="cardStyle"
+    >
+      <div
+        id="update"
+      >
+        <h1>
+          In this month edition
+        </h1>
+        <p>
+          Dumque ibi diu moratur commeatus opperiens, quorum translationem ex Aquitania verni imbres solito crebriores prohibebant auctique torrentes, Herculanus advenit protector domesticus, Hermogenis ex magistro equitum filius, apud Constantinopolim, ut supra rettulimus, populari quondam turbela discerpti. quo verissime referente quae Gallus egerat, damnis super praeteritis maerens et futurorum timore suspensus angorem animi quam diu potuit emendabat.
+        </p>
+      </div>
+    </div>
+  </div>
+  <footer
+    id="footer"
+  >
+    <p
+      id="footernotes"
+    >
+       Umami magazine & Umami publications is a fictional magazine and 
+      <br />
+       publisher for illustrative purposes only.      
+    </p>
+    <p
+      id="footerCopyrights"
+    >
+      © 2018 Terms & Conditions
+    </p>
+  </footer>
+</div>
+`;
