@@ -29,6 +29,7 @@ describe('App components', ()=>{
         const component = renderer.create(<App recipeData = {data} />)
         let tree = component.toJSON();
         expect(tree).toMatchSnapshot();
-    });
+    }); 
 
-})
+
+});
