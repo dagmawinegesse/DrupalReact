@@ -51,63 +51,69 @@ class ImageClick extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      index:0,
+      ID :0,
+      current: this.state,
       clicked: false,
       list: null,
-
     }
-      this.onClickForward = this.onClickForward.bind(this)
-      this.onClickBack = this.onClickBack.bind(this)
+      this.toggleNext = this.toggleNext.bind(this);
+      this.togglePrev = this.togglePrev.bind(this);
+
+
   }
   componentWillMount() {
     this.setState({ list: this.props.list, ID: this.props.ID })
 
   }
-  onClickForward(){
-    const { list } = this.state;
-    var clicked = false
-    if(clicked === true){
-      this.setState({
-          list:this.props.list, ID : this.props.ID + 1
-      })
-    
-    }
-  }
-  onClickBack(){
-    if(this.state.index - 1 === -1){
-      this.setState({
-        index: this.state.list.length -1 
-      })
-    }else{
-      this.setState({
-        index: this.state.index - 1
-      })
-    }
-  }
+  
+  toggleNext(i){
 
+
+    if(this.state.ID === this.state.list.length -1  )
+    return this.setState({ID: 0})
+
+    this.setState(prevState => ({ID: prevState.ID +1 }))
+
+   
+  }
+  togglePrev(prevID){
+    console.log("stateID",this.state.ID)
+
+    if(this.state.ID === 0){
+      console.log(this.state.ID === this.state.list.length -1 )
+     return this.setState({ID: this.state.list.length -1 })
+       
+    }
+ 
+
+
+    this.setState(prevState => ({ID: prevState.ID -1 }))
+
+  }
   render() {
-    // const { index, disabledNext, disabledPrev } = this.state
-    // const recID = this.props.ID
-    // const { result } = this.state;
+    {console.log("prevID",this.state.ID)}
+ 
     const { list } = this.state;
 
 
     return (
       <div className='recipe'>
         
-        <h1> {list[this.props.ID].title}</h1>  
-        <Button onClick = {this.onClickBack}>Previous</Button>
+        <h1> {list[this.state.ID].title}</h1>  
+        <Button onClick = {this.togglePrev}>Previous</Button>
           
-          <img src={picURL+list[this.props.ID].field_images} />
-          <Button onClick = {this.onClickForward}>Next</Button>
+          <img src={picURL+list[this.state.ID].field_images} />
+
+          {console.log(this.state.ID)}
+          <Button onClick = {this.toggleNext}>Next</Button>
             <div className = "fieldingredients">
                 
                     <li>
-                      {list[this.props.ID].field_ingredients}
+                      {list[this.state.ID].field_ingredients}
                       </li>
                  </div>
              <div>
-              <p>{list[this.props.ID].field_summary}</p>
+              <p>{list[this.state.ID].field_summary}</p>
 
              </div>
             </div>
