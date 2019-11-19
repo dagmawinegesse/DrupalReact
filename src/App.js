@@ -6,6 +6,7 @@ import {
 } from 'reactstrap';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+
 configure({ adapter: new Adapter() });
 
 console.log(React.version)
@@ -22,6 +23,8 @@ console.log(React.version)
 
 const API = 'http://gtest.dev.wwbtc.com/json/rec';
 const picURL = "http://gtest.dev.wwbtc.com";
+
+
 
 function App() {
   return (
@@ -66,7 +69,7 @@ class ImageClick extends React.Component {
 
   }
   
-  toggleNext(i){
+  toggleNext(){
 
 
     if(this.state.ID === this.state.list.length -1  )
@@ -76,7 +79,7 @@ class ImageClick extends React.Component {
 
    
   }
-  togglePrev(prevID){
+  togglePrev(){
     console.log("stateID",this.state.ID)
 
     if(this.state.ID === 0){

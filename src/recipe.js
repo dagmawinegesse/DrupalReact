@@ -23,7 +23,13 @@ class ImageClick extends React.Component {
       return (
         <div className='recipe'>
             
-                {/* <span>{result[thiis.props.ID].title}</span> */}
+  
+        </div>
+      );
+    }
+  }
+
+           {/* <span>{result[thiis.props.ID].title}</span> */}
              {/* <h1>{list[this.props.ID].Name}</h1> 
              
              <span><img src = {list[this.props.ID].url} width = '50%'></img>
@@ -33,8 +39,3 @@ class ImageClick extends React.Component {
              <br></br>
               <span>{list[this.props.ID].Summary}</span> */} 
   
-  
-        </div>
-      );
-    }
-  }
