@@ -69,3 +69,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 # My Recipe site
 [![Build Status](https://travis-ci.org/dagmawinegesse/DrupalReact.svg?branch=master)](https://travis-ci.org/dagmawinegesse/DrupalReact)
+
+[![Build Status](https://travis-ci.org/dagmawinegesse/DrupalReact.svg?branch=master)](https://travis-ci.org/dagmawinegesse/DrupalReact)
