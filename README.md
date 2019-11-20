@@ -67,5 +67,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-# My JavaScript Project
+# My Recipe site
 [![Build Status](https://travis-ci.org/dagmawinegesse/DrupalReact.svg?branch=master)](https://travis-ci.org/dagmawinegesse/DrupalReact)
