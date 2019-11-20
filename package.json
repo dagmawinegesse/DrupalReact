@@ -11,10 +11,9 @@
     "reactstrap": "^8.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "test": "jest --config ./jest.config.json",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -31,10 +30,9 @@
       "last 1 safari version"
     ]
   },
-
   "devDependencies": {
+    "coveralls": "^3.0.7",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1"
   }
-
 }
