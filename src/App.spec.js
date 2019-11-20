@@ -32,12 +32,12 @@ describe('App components', () => {
         let tree = component.toJSON();
         expect(tree).toMatchSnapshot();
     });
-    //     it('should increment state by one', () => {
-    //         const state = {ID : 0}
-    //         const newstate = toggleNext(state)
+        // it('should increment state by one', () => {
+        //     const state = {ID : 0}
+        //     const newstate = toggleNext(state)
 
-    //         expect(newstate.ID).toEqual(1);
-    //     });
+        //     expect(newstate.ID).toEqual(1);
+        // });
     //     it('should decrement state by one', () => {
 
     //         const state = {ID : 0}
