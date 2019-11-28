@@ -6,6 +6,13 @@ import {
 } from 'reactstrap';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
+import Recipes from './Recipes';
 
 configure({ adapter: new Adapter() });
 
@@ -28,25 +35,47 @@ const picURL = "http://gtest.dev.wwbtc.com";
 
 function App() {
   return (
-    <div className="App">
-      <nav >
-      <a href = {<Recipe/>}><h1>Food Recipes</h1></a>  
-        <div className="linkHome">
-          <a href={<Recipe />}>Home</a><br></br>
+    <Router>
+      <div className="App">
+        <nav >
+          <Link to = '/logo'><h1>Food Recipes</h1></Link>
+          <div className="linkHome">
+          <Link to = '/'>Home</Link>
+            <Link to = '/Recipes' >Recipes</Link>
+         <Switch>
+           
+             <Route 
+             path = '/logo' exact component = {Recipe}/>
+            <Route
+              path = '/' exact component = {Recipe}
+            />
+           <Route 
+          path = '/Recipes' 
+          component = {Recipes}
+        />
           
+           
+    
+      </Switch>
+
+          </div>
+    
+
+        </nav>
+        <div className="recipe1">
+          {/* <Recipe /> */}
         </div>
-        
-      </nav>
-      <div className="recipe1">
-        <Recipe />
-      </div>
-      <footer id="footer">
-        
-        <p id = "footernotes"> Umami magazine & Umami publications is a fictional magazine and <br></br> publisher for illustrative purposes only. 
+        <footer id="footer">
+          <p id="footernotes"> Umami magazine & Umami publications is a fictional magazine and <br></br> publisher for illustrative purposes only.
      &nbsp;  &nbsp;&nbsp;</p>
-     <p id= "footerCopyrights">© 2018 Terms & Conditions</p>
-      </footer>
-    </div>
+          <p id="footerCopyrights">© 2018 Terms & Conditions</p>
+        </footer>
+       
+      </div>
+      
+     
+    </Router>
+  
   );
 }
 
@@ -54,13 +83,13 @@ class ImageClick extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ID :0,
+      ID: 0,
       current: this.state,
       clicked: false,
       list: null,
     }
-      this.toggleNext = this.toggleNext.bind(this);
-      this.togglePrev = this.togglePrev.bind(this);
+    this.toggleNext = this.toggleNext.bind(this);
+    this.togglePrev = this.togglePrev.bind(this);
 
 
   }
@@ -68,58 +97,59 @@ class ImageClick extends React.Component {
     this.setState({ list: this.props.list, ID: this.props.ID })
 
   }
-  
-  toggleNext(){
+
+  toggleNext() {
 
 
-    if(this.state.ID === this.state.list.length -1  )
-    return this.setState({ID: 0})
+    if (this.state.ID === this.state.list.length - 1)
+      return this.setState({ ID: 0 })
 
-    this.setState(prevState => ({ID: prevState.ID +1 }))
+    this.setState(prevState => ({ ID: prevState.ID + 1 }))
 
-   
+
   }
-  togglePrev(){
-    console.log("stateID",this.state.ID)
+  togglePrev() {
+    console.log("stateID", this.state.ID)
 
-    if(this.state.ID === 0){
-      console.log(this.state.ID === this.state.list.length -1 )
-     return this.setState({ID: this.state.list.length -1 })
-       
+    if (this.state.ID === 0) {
+      console.log(this.state.ID === this.state.list.length - 1)
+      return this.setState({ ID: this.state.list.length - 1 })
+
     }
- 
 
 
-    this.setState(prevState => ({ID: prevState.ID -1 }))
+
+    this.setState(prevState => ({ ID: prevState.ID - 1 }))
 
   }
   render() {
-    {console.log("prevID",this.state.ID)}
- 
+    { console.log("prevID", this.state.ID) }
+
     const { list } = this.state;
 
 
     return (
+      
       <div className='recipe'>
-        
-        <h1> {list[this.state.ID].title}</h1>  
-        <Button onClick = {this.togglePrev}>Previous</Button>
-          
-          <img src={picURL+list[this.state.ID].field_images} />
+       
+        <h1> {list[this.state.ID].title}</h1>
+        <Button onClick={this.togglePrev}>Previous</Button>
 
-          {console.log(this.state.ID)}
-          <Button onClick = {this.toggleNext}>Next</Button>
-            <div className = "fieldingredients">
-                
-                    <li>
-                      {list[this.state.ID].field_ingredients}
-                      </li>
-                 </div>
-             <div>
-              <p>{list[this.state.ID].field_summary}</p>
+        <img src={picURL + list[this.state.ID].field_images} />
 
-             </div>
-            </div>
+        {console.log(this.state.ID)}
+        <Button onClick={this.toggleNext}>Next</Button>
+        <div className="fieldingredients">
+
+          <li>
+            {list[this.state.ID].field_ingredients}
+          </li>
+        </div>
+        <div>
+          <p>{list[this.state.ID].field_summary}</p>
+
+        </div>
+      </div>
     );
   }
 }
@@ -153,8 +183,8 @@ class Recipe extends React.Component {
   }
   render() {
     const { result } = this.state;
-  
-   
+
+
     if (this.state.clicked) {
       // console.log(this.item.ID)
 
@@ -166,14 +196,14 @@ class Recipe extends React.Component {
     return (
       <div className="cardStyle">
         {result.map((item, index) =>
-         
+
           <Card className="card" style={{ width: '18rem' }} >
-              
-            <a href="/#" onClick={() => this.imageClick(index)}><CardImg src= {picURL + item.field_images} /></a>
+
+            <a href="/#" onClick={() => this.imageClick(index)}><CardImg src={picURL + item.field_images} /></a>
             <CardBody>
               <CardTitle>{item.title}</CardTitle>
 
-         
+
             </CardBody>
           </Card>
 
