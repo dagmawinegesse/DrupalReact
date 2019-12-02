@@ -80,3 +80,6 @@ body{
 .cardStyle{
   text-align: center;
 }
+ul{
+  display: inline;
+}

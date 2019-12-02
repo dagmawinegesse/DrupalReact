@@ -36,10 +36,11 @@ function App() {
     <Router>
       <div className="App">
         <nav >
-          <Link to='/logo'><h1>Food Recipes</h1></Link>
-          <div className="linkHome">
-            <Link to='/'>Home</Link>
-            <Link to='/Recipes' >Recipes</Link>
+          <ul>
+            <li><Link to='/logo'><h1>Food Recipes</h1></Link></li>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/Recipes' >Recipes</Link></li>
+
             <Switch>
               <Route
                 path='/logo' exact component={Recipe} />
@@ -51,7 +52,8 @@ function App() {
                 component={Recipes}
               />
             </Switch>
-          </div>
+          </ul>
+
         </nav>
         <footer id="footer">
           <p id="footernotes"> Umami magazine & Umami publications is a fictional magazine and <br></br> publisher for illustrative purposes only.
@@ -164,25 +166,25 @@ class Recipe extends React.Component {
       return <ImageClick list={result} ID={this.state.objectID} />;
 
     }
-  
+
 
     return (
-     <div>
-      <div className="cardStyle">
-        {result.map((item, index) =>
-          <Card className="card" style={{ width: '18rem' , flex:1 }} >
-            <Link to= '/ImageClicked' onClick={() => this.imageClick(index)}><CardImg src={picURL + item.field_images} /></Link>
- 
-            <CardBody>
-              <CardTitle>{item.title}</CardTitle>
-              
-            </CardBody>
-           
-          </Card>
-        )}
-             
-         
-         </div>
+      <div>
+        <div className="cardStyle">
+          {result.map((item, index) =>
+            <Card className="card" style={{ width: '18rem', flex: 1 }} >
+              <Link to='/ImageClicked' onClick={() => this.imageClick(index)}><CardImg src={picURL + item.field_images} /></Link>
+
+              <CardBody>
+                <CardTitle>{item.title}</CardTitle>
+
+              </CardBody>
+
+            </Card>
+          )}
+
+
+        </div>
         <div id="update">
           <h1>In this month edition</h1>
           <p>
@@ -190,11 +192,11 @@ class Recipe extends React.Component {
 super praeteritis maerens et futurorum timore suspensus angorem animi quam diu potuit emendabat.</p>
 
         </div>
-            <Switch>
-            <Route path = '/ImageClicked' component = {ImageClick}/>
-          </Switch>
-          </div>
-     
+        <Switch>
+          <Route path='/ImageClicked' component={ImageClick} />
+        </Switch>
+      </div>
+
     );
   }
 }

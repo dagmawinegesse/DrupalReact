@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import App from './App';
 import { toggleNext, togglePrev } from './App';
+import Recipes from './Recipes';
 
 
 
@@ -26,25 +27,17 @@ var data = [
         node: "2"
     }
 ]
+
 describe('App components', () => {
     test('snapshot renders', () => {
         const component = renderer.create(<App recipeData={data} />)
         let tree = component.toJSON();
         expect(tree).toMatchSnapshot();
     });
-        // it('should increment state by one', () => {
-        //     const state = {ID : 0}
-        //     const newstate = toggleNext(state)
-
-        //     expect(newstate.ID).toEqual(1);
-        // });
-    //     it('should decrement state by one', () => {
-
-    //         const state = {ID : 0}
-    //         const newstate = togglePrev(state)
-
-    //         expect(newstate.ID).toEqual(-1);
-    // });
-
+     test('recipe snapshot', () =>{
+         const component = renderer.create(<Recipes recipeData = {data}/>) 
+         let tree = component.toJSON();
+         expect(tree).toMatchSnapshot();
+     })
 });
 

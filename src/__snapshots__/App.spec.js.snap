@@ -1,33 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`App components recipe snapshot 1`] = `
+<div>
+  <h1>
+    Recipes
+  </h1>
+  <h2>
+    Explore recipes accross every type of occasion, ingredient and skill level
+  </h2>
+</div>
+`;
+
 exports[`App components snapshot renders 1`] = `
 <div
   className="App"
 >
   <nav>
-    <a
-      href="/logo"
-      onClick={[Function]}
-    >
-      <h1>
-        Food Recipes
-      </h1>
-    </a>
-    <div
-      className="linkHome"
-    >
-      <a
-        href="/"
-        onClick={[Function]}
-      >
-        Home
-      </a>
-      <a
-        href="/Recipes"
-        onClick={[Function]}
-      >
-        Recipes
-      </a>
+    <ul>
+      <li>
+        <a
+          href="/logo"
+          onClick={[Function]}
+        >
+          <h1>
+            Food Recipes
+          </h1>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          href="/Recipes"
+          onClick={[Function]}
+        >
+          Recipes
+        </a>
+      </li>
       <div>
         <div
           className="cardStyle"
@@ -43,7 +58,7 @@ exports[`App components snapshot renders 1`] = `
           </p>
         </div>
       </div>
-    </div>
+    </ul>
   </nav>
   <footer
     id="footer"
