@@ -31,51 +31,35 @@ console.log(React.version)
 const API = 'http://gtest.dev.wwbtc.com/json/rec';
 const picURL = "http://gtest.dev.wwbtc.com";
 
-
-
 function App() {
   return (
     <Router>
       <div className="App">
         <nav >
-          <Link to = '/logo'><h1>Food Recipes</h1></Link>
+          <Link to='/logo'><h1>Food Recipes</h1></Link>
           <div className="linkHome">
-          <Link to = '/'>Home</Link>
-            <Link to = '/Recipes' >Recipes</Link>
-         <Switch>
-           
-             <Route 
-             path = '/logo' exact component = {Recipe}/>
-            <Route
-              path = '/' exact component = {Recipe}
-            />
-           <Route 
-          path = '/Recipes' 
-          component = {Recipes}
-        />
-          
-           
-    
-      </Switch>
-
+            <Link to='/'>Home</Link>
+            <Link to='/Recipes' >Recipes</Link>
+            <Switch>
+              <Route
+                path='/logo' exact component={Recipe} />
+              <Route
+                path='/' exact component={Recipe}
+              />
+              <Route
+                path='/Recipes'
+                component={Recipes}
+              />
+            </Switch>
           </div>
-    
-
         </nav>
-        <div className="recipe1">
-          {/* <Recipe /> */}
-        </div>
         <footer id="footer">
           <p id="footernotes"> Umami magazine & Umami publications is a fictional magazine and <br></br> publisher for illustrative purposes only.
      &nbsp;  &nbsp;&nbsp;</p>
           <p id="footerCopyrights">© 2018 Terms & Conditions</p>
         </footer>
-       
       </div>
-      
-     
     </Router>
-  
   );
 }
 
@@ -98,7 +82,8 @@ class ImageClick extends React.Component {
 
   }
 
-  toggleNext() {
+  toggleNext(e) {
+    e.preventDefault();
 
 
     if (this.state.ID === this.state.list.length - 1)
@@ -108,46 +93,35 @@ class ImageClick extends React.Component {
 
 
   }
-  togglePrev() {
-    console.log("stateID", this.state.ID)
+  togglePrev(e) {
+    e.preventDefault();
+
 
     if (this.state.ID === 0) {
       console.log(this.state.ID === this.state.list.length - 1)
       return this.setState({ ID: this.state.list.length - 1 })
 
     }
-
-
-
     this.setState(prevState => ({ ID: prevState.ID - 1 }))
 
   }
   render() {
-    { console.log("prevID", this.state.ID) }
 
     const { list } = this.state;
-
-
     return (
-      
       <div className='recipe'>
-       
         <h1> {list[this.state.ID].title}</h1>
         <Button onClick={this.togglePrev}>Previous</Button>
-
         <img src={picURL + list[this.state.ID].field_images} />
 
-        {console.log(this.state.ID)}
         <Button onClick={this.toggleNext}>Next</Button>
         <div className="fieldingredients">
-
           <li>
             {list[this.state.ID].field_ingredients}
           </li>
         </div>
         <div>
           <p>{list[this.state.ID].field_summary}</p>
-
         </div>
       </div>
     );
@@ -186,28 +160,29 @@ class Recipe extends React.Component {
 
 
     if (this.state.clicked) {
-      // console.log(this.item.ID)
 
       return <ImageClick list={result} ID={this.state.objectID} />;
 
     }
-    // if (!result) { return null; }
+  
 
     return (
+     <div>
       <div className="cardStyle">
         {result.map((item, index) =>
-
-          <Card className="card" style={{ width: '18rem' }} >
-
-            <a href="/#" onClick={() => this.imageClick(index)}><CardImg src={picURL + item.field_images} /></a>
+          <Card className="card" style={{ width: '18rem' , flex:1 }} >
+            <Link to= '/ImageClicked' onClick={() => this.imageClick(index)}><CardImg src={picURL + item.field_images} /></Link>
+ 
             <CardBody>
               <CardTitle>{item.title}</CardTitle>
-
-
+              
             </CardBody>
+           
           </Card>
-
         )}
+             
+         
+         </div>
         <div id="update">
           <h1>In this month edition</h1>
           <p>
@@ -215,8 +190,11 @@ class Recipe extends React.Component {
 super praeteritis maerens et futurorum timore suspensus angorem animi quam diu potuit emendabat.</p>
 
         </div>
-
-      </div>
+            <Switch>
+            <Route path = '/ImageClicked' component = {ImageClick}/>
+          </Switch>
+          </div>
+     
     );
   }
 }

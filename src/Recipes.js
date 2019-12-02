@@ -6,12 +6,7 @@ import {
 } from 'reactstrap';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from 'react-router-dom';
+
 const API = 'http://gtest.dev.wwbtc.com/json/rec';
 const picURL = "http://gtest.dev.wwbtc.com";
 
@@ -35,8 +30,9 @@ class ImageClick extends React.Component {
   
     }
   
-    toggleNext() {
-  
+    toggleNext(e) {
+        e.preventDefault();
+
   
       if (this.state.ID === this.state.list.length - 1)
         return this.setState({ ID: 0 })
@@ -45,8 +41,10 @@ class ImageClick extends React.Component {
   
   
     }
-    togglePrev() {
-      console.log("stateID", this.state.ID)
+    togglePrev(e) {
+        e.preventDefault();
+
+  
   
       if (this.state.ID === 0) {
         console.log(this.state.ID === this.state.list.length - 1)
@@ -108,6 +106,7 @@ class Recipes extends React.Component {
 }
 
 fetcheddataAPI(result) {
+
     this.setState({ result });
 
   }
@@ -116,6 +115,8 @@ fetcheddataAPI(result) {
     fetch(API).then(response => response.json()).then(result => this.fetcheddataAPI(result));
   }
   imageClick(objectId) {
+    
+
     //console.log(objectId)
     this.setState({ clicked: true, objectID: objectId })
 
