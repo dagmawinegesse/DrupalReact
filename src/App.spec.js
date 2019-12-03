@@ -4,13 +4,19 @@ import { mount } from 'enzyme';
 import App from './App';
 import { toggleNext, togglePrev } from './App';
 import Recipes from './Recipes';
+import ReactDOM from 'react-dom'
 
 
-
+it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<App />, div);
+    ReactDOM.unmountComponentAtNode(div);
+  });
 
 it('adds correctly', () => {
     expect(1 + 1).toEqual(2);
 })
+
 var data = [
     {
         field_images: "image section",
