@@ -50,14 +50,20 @@ describe('App components', () => {
         ReactDOM.unmountComponentAtNode(div);
       });
       test('<ImageClcked Component> run without crashing', () => {
-          const div = document.createElement('div');
-          ReactDOM.render(<ImageClick/>, div);
-          ReactDOM.unmountComponentAtNode(div);
+        //   const div = document.createElement('div');
+        //   ReactDOM.render(<ImageClick/>, div);
+        //   ReactDOM.unmountComponentAtNode(div);
+        const component = renderer.create(<ImageClick recipeData = {data}/>) 
+        let tree = component.toJSON();
+        expect(tree).toMatchSnapshot();
        });
        test('<Recipe run without crashing', ()=> {
-           const div = document.createElement('div');
-           ReactDOM.render(<Recipe/>, div);
-           ReactDOM.unmountComponentAtNode(div);
+        //    const div = document.createElement('div');
+        //    ReactDOM.render(<Recipe/>, div);
+        //    ReactDOM.unmountComponentAtNode(div);
+        const component = renderer.create(<Recipe recipeData = {data}/>) 
+        let tree = component.toJSON();
+        expect(tree).toMatchSnapshot();
        })
 
 });
