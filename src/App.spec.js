@@ -2,9 +2,12 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import App from './App';
+import ImageClick from './App';
 import { toggleNext, togglePrev } from './App';
 import Recipes from './Recipes';
+import Recipe from './App';
 import ReactDOM from 'react-dom'
+import { shallow } from 'enzyme';
 
 
 
@@ -41,10 +44,21 @@ describe('App components', () => {
          let tree = component.toJSON();
          expect(tree).toMatchSnapshot();
      })
-     test('renders without crashing', () => {
+     it('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(<App />, div);
         ReactDOM.unmountComponentAtNode(div);
       });
+      it('<ImageClcked Component> run without crashing', () => {
+          const div = document.createElement('div');
+          ReactDOM.render(<ImageClick/>, div);
+          ReactDOM.unmountComponentAtNode(div);
+       });
+       it('<Recipe run without crashing', ()=> {
+           const div = document.createElement('div');
+           ReactDOM.render(<Recipe/>, div);
+           ReactDOM.unmountComponentAtNode(div);
+       })
+
 });
 

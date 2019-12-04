@@ -112,19 +112,20 @@ class ImageClick extends React.Component {
     const { list } = this.state;
     return (
       <div className='recipe'>
+        <span className = 'foo'>
         <h1> {list[this.state.ID].title}</h1>
         <Button onClick={this.togglePrev}>Previous</Button>
         <img src={picURL + list[this.state.ID].field_images} />
 
         <Button onClick={this.toggleNext}>Next</Button>
-        <div className="fieldingredients">
+      
           <li>
             {list[this.state.ID].field_ingredients}
           </li>
-        </div>
-        <div>
+        
+        
           <p>{list[this.state.ID].field_summary}</p>
-        </div>
+          </span>
       </div>
     );
   }
@@ -173,7 +174,7 @@ class Recipe extends React.Component {
         <div className="cardStyle">
           {result.map((item, index) =>
             <Card className="card" style={{ width: '18rem', flex: 1 }} >
-              <Link to='/ImageClicked' onClick={() => this.imageClick(index)}><CardImg src={picURL + item.field_images} /></Link>
+              <a href='#' onClick={() => this.imageClick(index)}><CardImg src={picURL + item.field_images} /></a>
 
               <CardBody>
                 <CardTitle>{item.title}</CardTitle>
@@ -192,9 +193,9 @@ class Recipe extends React.Component {
 super praeteritis maerens et futurorum timore suspensus angorem animi quam diu potuit emendabat.</p>
 
         </div>
-        <Switch>
+        {/* <Switch>
           <Route path='/ImageClicked' component={ImageClick} />
-        </Switch>
+        </Switch> */}
       </div>
 
     );
