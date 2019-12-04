@@ -44,17 +44,17 @@ describe('App components', () => {
          let tree = component.toJSON();
          expect(tree).toMatchSnapshot();
      })
-     it('renders without crashing', () => {
+     test('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(<App />, div);
         ReactDOM.unmountComponentAtNode(div);
       });
-      it('<ImageClcked Component> run without crashing', () => {
+      test('<ImageClcked Component> run without crashing', () => {
           const div = document.createElement('div');
           ReactDOM.render(<ImageClick/>, div);
           ReactDOM.unmountComponentAtNode(div);
        });
-       it('<Recipe run without crashing', ()=> {
+       test('<Recipe run without crashing', ()=> {
            const div = document.createElement('div');
            ReactDOM.render(<Recipe/>, div);
            ReactDOM.unmountComponentAtNode(div);
