@@ -18,7 +18,7 @@ class ImageClick extends React.Component {
         ID: 0,
         current: this.state,
         clicked: false,
-        list: null,
+        list: this.props.list,
       }
       this.toggleNext = this.toggleNext.bind(this);
       this.togglePrev = this.togglePrev.bind(this);
@@ -122,11 +122,7 @@ fetcheddataAPI(result) {
 
 
   }
-
-
-    render() {
-      
-
+    render() {     
         const {result} = this.state
         console.log("hello",result)
         if(this.state.clicked){
@@ -143,23 +139,11 @@ fetcheddataAPI(result) {
 
                           <a href="/#" onClick={() => this.imageClick(index)}><CardImg src={picURL + item.field_images} /></a>
                           <CardBody>
-                            <CardTitle>{item.title}</CardTitle>
-              
-              
+                            <CardTitle>{item.title}</CardTitle>            
                           </CardBody>
                         </Card>
-                    
-                    
-                    
-                    
-                    
-                    ) }
-
-                    
-                </div>
-
-
-
+                          ) }
+                 </div>
         )
     }
 }
