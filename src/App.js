@@ -28,11 +28,11 @@ function App() {
         <nav className = 'nav' >
           <ul>
             <li><Link to='/logo'><h1>Food Recipes</h1></Link></li>
-            <li><Link to='/Home'>Home</Link></li>
+            <li><Link to='/'>Home</Link></li>
             <li><Link to='/Recipes' >Recipes</Link></li>
 
             <Switch>
-              <Route path = '/Home' exact component = {Recipe}/>
+              <Route path = '/' exact component = {Recipe}/>
               <Route
                 path='/logo'  exact component={Recipe} />
               <Route
