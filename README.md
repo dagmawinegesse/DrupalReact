@@ -72,5 +72,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 # My Recipe site
 [![Build Status](https://travis-ci.org/dagmawinegesse/DrupalReact.svg?branch=master)](https://travis-ci.org/dagmawinegesse/DrupalReact)
 # Coverage
-Actually have 32% covered but it the Markup shows 15% for unkown reason
+Actually have 32% covered but it is stuck at 15%
 [![Coverage Status](https://coveralls.io/repos/github/dagmawinegesse/DrupalReact/badge.svg?branch=master)](https://coveralls.io/github/dagmawinegesse/DrupalReact?branch=master&service=github)
