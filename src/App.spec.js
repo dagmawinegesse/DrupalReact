@@ -12,6 +12,7 @@ import { shallow } from 'enzyme';
 
 
 
+
 it('adds correctly', () => {
     expect(1 + 1).toEqual(2);
 })
@@ -45,6 +46,13 @@ describe('App components', () => {
         ReactDOM.render(<App />, div);
         ReactDOM.unmountComponentAtNode(div);
     });
+    // it('renders index.js without crushing', ()=>{
+    //     const div = document.createElement('div');
+    //     div.id = "root";
+    //     document.body.appendChild(div);
+    //     require("index.js");
+    //     expect(ReactDOM.render).toHaveBeenCalledWith(<App/>, div);
+    // })
 
 });
 describe('ImageClicked components', () => {
