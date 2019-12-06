@@ -1,11 +1,10 @@
 import React from 'react';
 import './app.css';
 import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
+    Card, CardImg,  CardBody,
+    CardTitle,  Button
 } from 'reactstrap';
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+
 
 const API = 'http://gtest.dev.wwbtc.com/json/rec';
 const picURL = "http://gtest.dev.wwbtc.com";

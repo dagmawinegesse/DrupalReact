@@ -1,8 +1,8 @@
 import React from 'react';
 import './app.css';
 import {
-  Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
+  Card, CardImg,CardBody,
+  CardTitle,  Button
 } from 'reactstrap';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -28,12 +28,13 @@ function App() {
         <nav className = 'nav' >
           <ul>
             <li><Link to='/logo'><h1>Food Recipes</h1></Link></li>
-            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/Home'>Home</Link></li>
             <li><Link to='/Recipes' >Recipes</Link></li>
 
             <Switch>
+              <Route path = '/Home' exact component = {Recipe}/>
               <Route
-                path='/logo' exact component={Recipe} />
+                path='/logo'  exact component={Recipe} />
               <Route
                 path='/' exact component={Recipe}
               />
@@ -41,6 +42,7 @@ function App() {
                 path='/Recipes'
                 component={Recipes}
               />
+            
             </Switch>
           </ul>
 
