@@ -2,6 +2,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## React Router is implemented and works    
 But has an issue going from Recipe Detail(description) to Home Page
+# My Recipe site
+[![Build Status](https://travis-ci.org/dagmawinegesse/DrupalReact.svg?branch=master)](https://travis-ci.org/dagmawinegesse/DrupalReact)
+# Coverage
+Actually have 32% covered but it is stuck at 15%
+[![Coverage Status](https://coveralls.io/repos/github/dagmawinegesse/DrupalReact/badge.svg?branch=master)](https://coveralls.io/github/dagmawinegesse/DrupalReact?branch=master&service=github)
 ## Available Scripts
 
 In the project directory, you can run:
@@ -69,8 +74,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-# My Recipe site
-[![Build Status](https://travis-ci.org/dagmawinegesse/DrupalReact.svg?branch=master)](https://travis-ci.org/dagmawinegesse/DrupalReact)
-# Coverage
-Actually have 32% covered but it is stuck at 15%
-[![Coverage Status](https://coveralls.io/repos/github/dagmawinegesse/DrupalReact/badge.svg?branch=master)](https://coveralls.io/github/dagmawinegesse/DrupalReact?branch=master&service=github)
