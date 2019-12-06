@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import App , { Counter, dataReducer }from './App';
+import App, { Counter, dataReducer } from './App';
 import ImageClick from './App';
 import { toggleNext, togglePrev } from './App';
 import Recipes from './Recipes';
@@ -39,37 +39,40 @@ describe('App components', () => {
         let tree = component.toJSON();
         expect(tree).toMatchSnapshot();
     });
-     test('recipe snapshot', () =>{
-         const component = renderer.create(<Recipes recipeData = {data}/>) 
-         let tree = component.toJSON();
-         expect(tree).toMatchSnapshot();
-     })
-     test('renders without crashing', () => {
+ 
+    test('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(<App />, div);
         ReactDOM.unmountComponentAtNode(div);
-      });
-    
-     
-     
-       
- 
+    });
+
+
+
+
+
 });
 describe('ImageClicked components', () => {
     test('<ImageClcked Component> run without crashing', () => {
-    //   const div = document.createElement('div');
-    //   ReactDOM.render(<ImageClick/>, div);
-    //   ReactDOM.unmountComponentAtNode(div);
-    const component = renderer.create(<ImageClick recipeData = {data}/>) 
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-});
-describe('Recipe Components', () =>{
-    test('<Recipe run without crashing', ()=> {
-   
-        const component = renderer.create(<Recipe recipeData = {data}/>) 
+        //   const div = document.createElement('div');
+        //   ReactDOM.render(<ImageClick/>, div);
+        //   ReactDOM.unmountComponentAtNode(div);
+        const component = renderer.create(<ImageClick recipeData={data} />)
         let tree = component.toJSON();
         expect(tree).toMatchSnapshot();
-       });
+    });
 });
+describe('Recipe Components', () => {
+    test('<Recipe run without crashing', () => {
+
+        const component = renderer.create(<Recipe recipeData={data} />)
+        let tree = component.toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+});
+describe('Recipe page components', () => {
+    test('recipe snapshot', () => {
+        const component = renderer.create(<Recipes recipeData={data} />)
+        let tree = component.toJSON();
+        expect(tree).toMatchSnapshot();
+    })
+})

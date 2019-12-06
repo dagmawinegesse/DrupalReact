@@ -1,16 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App components recipe snapshot 1`] = `
-<div>
-  <h1>
-    Recipes
-  </h1>
-  <h2>
-    Explore recipes accross every type of occasion, ingredient and skill level
-  </h2>
-</div>
-`;
-
 exports[`App components snapshot renders 1`] = `
 <div
   className="App"
@@ -212,5 +201,16 @@ exports[`Recipe Components <Recipe run without crashing 1`] = `
       © 2018 Terms & Conditions
     </p>
   </footer>
+</div>
+`;
+
+exports[`Recipe page components recipe snapshot 1`] = `
+<div>
+  <h1>
+    Recipes
+  </h1>
+  <h2>
+    Explore recipes accross every type of occasion, ingredient and skill level
+  </h2>
 </div>
 `;
