@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## React Router is implemented and works    
+But has an issue going from Recipe Detail(description) to Home Page
 ## Available Scripts
 
 In the project directory, you can run:
@@ -70,4 +72,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 # My Recipe site
 [![Build Status](https://travis-ci.org/dagmawinegesse/DrupalReact.svg?branch=master)](https://travis-ci.org/dagmawinegesse/DrupalReact)
 # Coverage
-[![Coverage Status](https://coveralls.io/repos/github/dagmawinegesse/DrupalReact/badge.svg?branch=master)](https://coveralls.io/github/dagmawinegesse/DrupalReact?branch=master)
+Actually have 32% covered but it the Markup shows 15% for unkown reason
+[![Coverage Status](https://coveralls.io/repos/github/dagmawinegesse/DrupalReact/badge.svg?branch=master)](https://coveralls.io/github/dagmawinegesse/DrupalReact?branch=master&service=github)
