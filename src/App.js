@@ -25,7 +25,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <nav >
+        <nav className = 'nav' >
           <ul>
             <li><Link to='/logo'><h1>Food Recipes</h1></Link></li>
             <li><Link to='/'>Home</Link></li>
@@ -104,17 +104,14 @@ class ImageClick extends React.Component {
       <div className='recipe'>
         <span className = 'foo'>
         <h1> {list[this.state.ID].title}</h1>
-        <Button onClick={this.togglePrev}>Previous</Button>
+        <Button className = "perv"onClick={this.togglePrev}>Previous</Button>
         <img src={picURL + list[this.state.ID].field_images} />
 
-        <Button onClick={this.toggleNext}>Next</Button>
-      
-          <li>
+        <Button className = "next" onClick={this.toggleNext}>Next</Button>
+      <li>
             {list[this.state.ID].field_ingredients}
           </li>
-        
-        
-          <p>{list[this.state.ID].field_summary}</p>
+        <p>{list[this.state.ID].field_summary}</p>
           </span>
       </div>
     );
@@ -163,16 +160,11 @@ class Recipe extends React.Component {
           {result.map((item, index) =>
             <Card className="card" style={{ width: '18rem', flex: 1 }} >
               <a href='#' onClick={() => this.imageClick(index)}><CardImg src={picURL + item.field_images} /></a>
-
               <CardBody>
                 <CardTitle>{item.title}</CardTitle>
-
               </CardBody>
-
             </Card>
           )}
-
-
         </div>
         <div id="update">
           <h1>In this month edition</h1>

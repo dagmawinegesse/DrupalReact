@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount,shallow } from 'enzyme';
-import App from './App';
+import { mount } from 'enzyme';
+import App, { Counter, dataReducer } from './App';
 import ImageClick from './App';
 import { toggleNext, togglePrev } from './App';
 import Recipes from './Recipes';
 import Recipe from './App';
 import ReactDOM from 'react-dom'
+import { shallow } from 'enzyme';
 
-import register from './serviceWorker'
 
 
 
@@ -32,17 +32,10 @@ var data = [
         node: "2"
     }
 ]
-const home =[
-    {
-        title: "title",
-        body: "body",
-        view_node:"node/1"
-    }
-]
 
 describe('App components', () => {
     test('snapshot renders', () => {
-        const component = renderer.create(<App homepage = {home}recipeData={data} />)
+        const component = renderer.create(<App recipeData={data} />)
         let tree = component.toJSON();
         expect(tree).toMatchSnapshot();
     });
@@ -67,22 +60,15 @@ describe('ImageClicked components', () => {
 describe('Recipe Components', () => {
     test('<Recipe run without crashing', () => {
 
-        const component = renderer.create(<Recipe list = {0} recipeData={data} />)
+        const component = renderer.create(<Recipe recipeData={data} />)
         let tree = component.toJSON();
         expect(tree).toMatchSnapshot();
     });
 });
 describe('Recipe page components', () => {
     test('recipe snapshot', () => {
-        const component = renderer.create(<Recipes list = {0}recipeData={data} />)
+        const component = renderer.create(<Recipes recipeData={data} />)
         let tree = component.toJSON();
         expect(tree).toMatchSnapshot();
     });
-    // it('increment vlaue for next button ', ()=> {
-    //     const wrapper = mount(<Recipes ID = {0} recipeData = {data}/> )
-    //     wrapper.find('next').simulate('click');
-    //     expect(wrapper.update().state().list).toEqual(1);
-    // });
-
 });
-

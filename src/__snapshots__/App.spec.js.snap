@@ -4,7 +4,9 @@ exports[`App components snapshot renders 1`] = `
 <div
   className="App"
 >
-  <nav>
+  <nav
+    className="nav"
+  >
     <ul>
       <li>
         <a
@@ -72,7 +74,9 @@ exports[`ImageClicked components <ImageClcked Component> run without crashing 1`
 <div
   className="App"
 >
-  <nav>
+  <nav
+    className="nav"
+  >
     <ul>
       <li>
         <a
@@ -140,7 +144,9 @@ exports[`Recipe Components <Recipe run without crashing 1`] = `
 <div
   className="App"
 >
-  <nav>
+  <nav
+    className="nav"
+  >
     <ul>
       <li>
         <a
