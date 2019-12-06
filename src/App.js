@@ -16,17 +16,7 @@ import Recipes from './Recipes';
 
 configure({ adapter: new Adapter() });
 
-console.log(React.version)
-// const lorem = new LoremIpsum({
-//   sentencesPerParagraph: {
-//     max: 8,
-//     min: 4
-//   },
-//   wordsPerSentence: {
-//     max: 16,
-//     min: 4
-//   }
-// });
+
 
 const API = 'http://gtest.dev.wwbtc.com/json/rec';
 const picURL = "http://gtest.dev.wwbtc.com";
@@ -167,8 +157,6 @@ class Recipe extends React.Component {
       return <ImageClick list={result} ID={this.state.objectID} />;
 
     }
-
-
     return (
       <div>
         <div className="cardStyle">
